@@ -16,12 +16,12 @@ namespace FFMpeg\Format\Video;
  */
 class WMV extends DefaultVideo
 {
-    public function __construct($audioCodec = 'wmav2', $videoCodec = 'wmv2', $fileformat = '')// TODO
+    public function __construct($audioCodec = 'wmav2', $videoCodec = 'wmv2', $fileFormat = '')// TODO
     {
         $this
             ->setAudioCodec($audioCodec)
             ->setVideoCodec($videoCodec)
-            ->setFileFormat($fileformat);
+            ->setFileFormat($fileFormat);
     }
 
     /**

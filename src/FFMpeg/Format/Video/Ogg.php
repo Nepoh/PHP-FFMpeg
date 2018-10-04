@@ -16,12 +16,12 @@ namespace FFMpeg\Format\Video;
  */
 class Ogg extends DefaultVideo
 {
-    public function __construct($audioCodec = 'libvorbis', $videoCodec = 'libtheora', $fileformat = 'ogv')
+    public function __construct($audioCodec = 'libvorbis', $videoCodec = 'libtheora', $fileFormat = 'ogv')
     {
         $this
             ->setAudioCodec($audioCodec)
             ->setVideoCodec($videoCodec)
-            ->setFileFormat($fileformat);
+            ->setFileFormat($fileFormat);
     }
 
     /**
