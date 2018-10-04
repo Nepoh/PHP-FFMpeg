@@ -30,6 +30,9 @@ abstract class DefaultAudio extends EventEmitter implements AudioInterface, Prog
     /** @var integer */
     protected $audioChannels = null;
 
+    /** @var string */
+    protected $fileFormat;
+
     /**
      * {@inheritdoc}
      */
@@ -114,6 +117,36 @@ abstract class DefaultAudio extends EventEmitter implements AudioInterface, Prog
         }
 
         $this->audioChannels = (int) $channels;
+
+        return $this;
+    }
+
+    /**
+     * {@inheritdoc}
+     */
+    public function getFileFormat()
+    {
+        return $this->fileFormat;
+    }
+
+    /**
+     * Sets the file format. Should be in the available ones, otherwise an
+     * exception is thrown.
+     *
+     * @param string $fileFormat
+     *
+     * @throws InvalidArgumentException
+     */
+    public function setFileFormat($fileFormat)
+    {
+        if ( ! in_array($fileFormat, $this->getAvailableFileFormats())) {
+            throw new InvalidArgumentException(sprintf(
+                    'Wrong file format value for %s, available formats are %s'
+                    , $fileFormat, implode(', ', $this->getAvailableFileFormats())
+            ));
+        }
+
+        $this->fileFormat = $fileFormat;
 
         return $this;
     }

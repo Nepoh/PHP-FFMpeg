@@ -16,9 +16,10 @@ namespace FFMpeg\Format\Audio;
  */
 class Vorbis extends DefaultAudio
 {
-    public function __construct()
+    public function __construct($fileFormat = 'oga')
     {
         $this->audioCodec = 'vorbis';
+        $this->setFileFormat($fileFormat);
     }
 
     /**
@@ -26,7 +27,10 @@ class Vorbis extends DefaultAudio
      */
     public function getExtraParams()
     {
-        return array('-strict', '-2');
+        return array(
+            '-strict', '-2',
+            '-f', $this->fileFormat // force file format
+        );
     }
 
     /**
@@ -35,5 +39,13 @@ class Vorbis extends DefaultAudio
     public function getAvailableAudioCodecs()
     {
         return array('vorbis');
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    public function getAvailableFileFormats()
+    {
+        return array('oga');
     }
 }

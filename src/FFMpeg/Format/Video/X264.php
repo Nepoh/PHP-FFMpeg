@@ -22,11 +22,12 @@ class X264 extends DefaultVideo
     /** @var integer */
     private $passes = 2;
 
-    public function __construct($audioCodec = 'libfaac', $videoCodec = 'libx264')
+    public function __construct($audioCodec = 'libfaac', $videoCodec = 'libx264', $fileformat = '')// TODO
     {
         $this
             ->setAudioCodec($audioCodec)
-            ->setVideoCodec($videoCodec);
+            ->setVideoCodec($videoCodec)
+            ->setFileFormat($fileformat);
     }
 
     /**
@@ -52,6 +53,16 @@ class X264 extends DefaultVideo
     /**
      * {@inheritDoc}
      */
+    public function getExtraParams()
+    {
+        return array(
+            '-f', $this->fileFormat // force file format
+        );
+    }
+
+    /**
+     * {@inheritDoc}
+     */
     public function getAvailableAudioCodecs()
     {
         return array('aac', 'libvo_aacenc', 'libfaac', 'libmp3lame', 'libfdk_aac');
@@ -63,6 +74,14 @@ class X264 extends DefaultVideo
     public function getAvailableVideoCodecs()
     {
         return array('libx264');
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    public function getAvailableFileFormats()
+    {
+        return array();// TODO
     }
 
     /**

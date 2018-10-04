@@ -39,4 +39,18 @@ interface AudioInterface extends FormatInterface
      * @return array
      */
     public function getAvailableAudioCodecs();
+
+    /**
+     * Returns the file format.
+     *
+     * @return string
+     */
+    public function getFileFormat();
+
+    /**
+     * Returns the list of available file formats for this format.
+     *
+     * @return array
+     */
+    public function getAvailableFileFormats();
 }
