@@ -63,6 +63,6 @@ class Ogg extends DefaultVideo
      */
     public function getAvailableFileFormats()
     {
-        return array('ogv', 'ogg');
+        return array('ogv');
     }
 }
