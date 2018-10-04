@@ -29,6 +29,7 @@ class Vorbis extends DefaultAudio
     {
         return array(
             '-strict', '-2',
+            '-vn',                  // remove video streams
             '-f', $this->fileFormat // force file format
         );
     }

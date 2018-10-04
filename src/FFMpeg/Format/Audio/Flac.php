@@ -28,6 +28,7 @@ class Flac extends DefaultAudio
     public function getExtraParams()
     {
         return array(
+          '-vn',                  // remove video streams
           '-f', $this->fileFormat // force file format
         );
     }
