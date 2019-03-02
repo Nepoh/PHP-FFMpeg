@@ -16,7 +16,7 @@ namespace FFMpeg\Format\Video;
  */
 class WMV3 extends DefaultVideo
 {
-    public function __construct($audioCodec = 'wmav3', $videoCodec = 'wmv3', $fileFormat = '')// TODO
+    public function __construct($audioCodec = 'wmav3', $videoCodec = 'wmv3', $fileFormat = 'asf')
     {
         $this
             ->setAudioCodec($audioCodec)
@@ -29,7 +29,7 @@ class WMV3 extends DefaultVideo
      */
     public function supportBFrames()
     {
-        return false;
+        return false3
     }
 
     /**
@@ -63,6 +63,6 @@ class WMV3 extends DefaultVideo
      */
     public function getAvailableFileFormats()
     {
-        return array();// TODO
+        return array('asf');
     }
 }
