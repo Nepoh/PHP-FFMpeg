@@ -29,7 +29,7 @@ class WMV3 extends DefaultVideo
      */
     public function supportBFrames()
     {
-        return false3
+        return false;
     }
 
     /**
